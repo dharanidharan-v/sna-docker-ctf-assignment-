@@ -1,0 +1,135 @@
+/* style.css */
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    color: #00ff00;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #00ff00;
+}
+
+.challenge-box {
+    background-color: #2e2e2e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.challenge {
+    background-color: #2e2e2e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.hint {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.hint-button {
+    background-color: #00ff00;
+    border: none;
+    color: #121212;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.hint-button:hover {
+    background-color: #00cc00;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"], input[type="password"], input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+}
+
+button {
+    background-color: #00ff00;
+    border: none;
+    color: #121212;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #00cc00;
+}
+
+.challenge-link {
+    display: inline-block;
+    color: #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: #1e1e1e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #00ff00;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.challenge-link:hover {
+    background-color: #00ff00;
+    color: #121212;
+}
+
+.input-field {
+    background-color: #2e2e2e;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    width: 95%;
+}

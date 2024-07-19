@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if challenge == 'funny_database_queries' %}
+        <div class="challenge">
+            <h2>Funny Database Queries</h2>
+            <form method="POST" action="{{ url_for('funny_database_queries') }}">
+                <label for="username">Username:</label>
+                <input type="text" name="username" required class="input-field"><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" required class="input-field"><br>
+                <button type="submit">Login</button><br>
+            </form><br>
+            <button class="hint-button" onclick="toggleHint('hint_funny')">Show Hint</button>
+            <div id="hint_funny" class="hint" style="display:none;">
+                <p>Sometimes databases trust user input too much...</p>
+            </div>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if flag %}
+                <p>Flag: {{ flag }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if challenge == 'sneaky_scripts' %}
+        <div class="challenge">
+            <h2>Feedback</h2>
+            <form method="POST" action="{{ url_for('sneaky_scripts') }}">
+                <label for="email">Email:</label>
+                <input type="email" name="email" required class="input-field"><br>
+                <label for="comment">Comment:</label>
+                <input type="text" name="comment" required class="input-field"><br>
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if flag %}
+                <p>Flag: {{ flag }}</p>
+            {% endif %}
+
+            <h3>Comments:</h3>
+            <ul>
+                {% for email, comment in comments %}
+                    <li><strong>{{ email }}:</strong> {{ comment|safe }}</li>
+                {% endfor %}
+            </ul>
+
+            <button class="hint-button" onclick="toggleHint('hint_sneaky_scripts')">Show Hint</button>
+            <div id="hint_sneaky_scripts" class="hint" style="display:none;">
+                <p>Be careful what you let others post on your site...</p>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if challenge == 'dodgy_file_uploads' %}
+        <div class="challenge">
+            <h2>Dodgy File Uploads</h2>
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('dodgy_file_uploads') }}">
+                <label for="file">File:</label>
+                <input type="file" name="file" required class="input-field"><br>
+                <button type="submit">Upload</button><br>
+            </form><br>
+            <button class="hint-button" onclick="toggleHint('hint_dodgy')">Show Hint</button>
+            <div id="hint_dodgy" class="hint" style="display:none;">
+                <p>Not all files are safe to upload...</p>
+            </div>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            {% if flag %}
+                <p>Flag: {{ flag }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if challenge == 'commandos_attack' %}
+        <div class="challenge">
+            <h2>Commandos Attack</h2>
+            <form method="POST" action="{{ url_for('commandos_attack') }}">
+                <label for="command">Command:</label>
+                <input type="text" name="command" required><br>
+                <button type="submit">Execute</button><br>
+            </form><br>
+            <button class="hint-button" onclick="toggleHint('hint_commandos')">Show Hint</button>
+            <div id="hint_commandos" class="hint" style="display:none;">
+                <p>Sometimes commands can do more than expected...</p>
+            </div>
+            {% if output %}
+                <p>Output: {{ output }}</p>
+            {% endif %}
+            {% if flag %}
+                <p>Flag: {{ flag }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <script>
+        function toggleHint(id) {
+            var hint = document.getElementById(id);
+            if (hint.style.display === "none") {
+                hint.style.display = "block";
+            } else {
+                hint.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}
