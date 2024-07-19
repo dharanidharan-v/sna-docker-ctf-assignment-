@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Challenges</h2>
+    
+    <p>Total Flags Found: {{ flags_found }}</p>
+
+    <div class="challenge-box">
+        <h3>Data Vault Break-In</h3>
+        <button class="hint-button" onclick="toggleHint('hint1')">Show Hint</button>
+        <div id="hint1" class="hint">
+            <p>Sometimes databases trust user input too much...</p>
+        </div>
+        <p>A challenge involving SQL injection. Can you bypass the login?</p>
+        <a href="{{ url_for('funny_database_queries') }}" class="challenge-link">Go to Challenge</a>
+        <form method="POST" action="{{ url_for('submit_flag', challenge='funny_database_queries') }}">
+            <label for="flag">Submit Flag:</label>
+            <input type="text" name="flag" required><br>
+            <button type="submit">Submit Flag</button>
+        </form>
+    </div>
+
+    <div class="challenge-box">
+        <h3>Sneaky Scripts</h3>
+        <button class="hint-button" onclick="toggleHint('hint2')">Show Hint</button>
+        <div id="hint2" class="hint">
+            <p>Be careful what you let others post on your site...</p>
+        </div>
+        <p>Can you exploit XSS vulnerability in the comment section?</p>
+        <a href="{{ url_for('sneaky_scripts') }}" class="challenge-link">Go to Challenge</a>
+        <form method="POST" action="{{ url_for('submit_flag', challenge='sneaky_scripts') }}">
+            <label for="flag">Submit Flag:</label>
+            <input type="text" name="flag" required><br>
+            <button type="submit">Submit Flag</button>
+        </form>
+    </div>
+
+    <div class="challenge-box">
+        <h3>Dodgy File Uploads</h3>
+        <button class="hint-button" onclick="toggleHint('hint3')">Show Hint</button>
+        <div id="hint3" class="hint">
+            <p>Not all files are safe to upload...</p>
+        </div>
+        <p>Test the server's file upload functionality. Can you upload a malicious file?</p>
+        <a href="{{ url_for('dodgy_file_uploads') }}" class="challenge-link">Go to Challenge</a>
+        <form method="POST" action="{{ url_for('submit_flag', challenge='dodgy_file_uploads') }}">
+            <label for="flag">Submit Flag:</label>
+            <input type="text" name="flag" required><br>
+            <button type="submit">Submit Flag</button>
+        </form>
+    </div>
+
+    <div class="challenge-box">
+        <h3>Ping Service Exploit</h3>
+        <button class="hint-button" onclick="toggleHint('hint4')">Show Hint</button>
+        <div id="hint4" class="hint">
+            <p>Sometimes commands can do more than expected...</p>
+        </div>
+        <p>Explore command injection vulnerability. Can you execute commands?</p>
+        <a href="{{ url_for('commandos_attack') }}" class="challenge-link">Go to Challenge</a>
+        <form method="POST" action="{{ url_for('submit_flag', challenge='commandos_attack') }}">
+            <label for="flag">Submit Flag:</label>
+            <input type="text" name="flag" required><br>
+            <button type="submit">Submit Flag</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleHint(id) {
+            var hint = document.getElementById(id);
+            if (hint.style.display === "none") {
+                hint.style.display = "block";
+            } else {
+                hint.style.display = "none";
+            }
+        }
+    </script>
+{% endblock %}
